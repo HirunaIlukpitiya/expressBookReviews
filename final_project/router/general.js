@@ -102,7 +102,7 @@ function getBookList(){
 public_users.get('/',function (req, res) {
   getBookList().then(
     (bk)=>res.send(JSON.stringify(bk, null, 4)),
-    (error) => res.send("denied")
+    (error) => res.send(error)
   );  
 });
 
@@ -114,7 +114,7 @@ function getFromISBN(isbn){
     if (book_) {
       resolve(book_);
     }else{
-      reject("Unable to find book!");
+      reject("No book Found!");
     }    
   })
 }
